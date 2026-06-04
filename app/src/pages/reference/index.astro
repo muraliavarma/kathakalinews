@@ -1,6 +1,7 @@
 ---
 import Site from '../../layouts/Site.astro';
 import reference from '../../data/reference.json';
+import { link } from '../../lib/href';
 
 const order = ['ramayana', 'mahabharata', 'bhagavata', 'attams', 'ragas_revisited'] as const;
 const blurbs: Record<string, string> = {
@@ -22,7 +23,7 @@ const blurbs: Record<string, string> = {
   <div class="wrap" style="padding-top:1.4rem;">
     <div class="grid cards">
       {order.map((key) => (
-        <a class="card" href={`/reference/${key}`}>
+        <a class="card" href={link(`/reference/${key}`)}>
           <h3>{(reference as any)[key].title}</h3>
           <p>{blurbs[key]}</p>
         </a>

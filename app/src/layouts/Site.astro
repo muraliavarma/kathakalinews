@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { link } from '../lib/href';
 
 interface Props {
   title?: string;
@@ -31,12 +32,12 @@ const nav = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title === 'Kathakali News' ? title : `${title} · Kathakali News`}</title>
     <meta name="description" content={description} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={link('/favicon.svg')} type="image/svg+xml" />
   </head>
   <body>
     <header class="masthead">
       <div class="wrap">
-        <a class="brand" href="/">
+        <a class="brand" href={link('/')}>
           <span class="dot" aria-hidden="true"></span>
           <span>
             <b>KATHAKALINEWS</b><br />
@@ -45,7 +46,7 @@ const nav = [
         </a>
         <nav class="main" aria-label="Primary">
           {nav.map((n) => (
-            <a href={n.href} aria-current={active === n.key ? 'page' : undefined}>{n.label}</a>
+            <a href={link(n.href)} aria-current={active === n.key ? 'page' : undefined}>{n.label}</a>
           ))}
         </nav>
       </div>
@@ -59,14 +60,14 @@ const nav = [
       <div class="wrap">
         <div>
           <strong>kathakalinews.com</strong> — reconstructed from the Internet Archive (2008–2014 era)
-          and rebuilt on Cloudflare&nbsp;Workers + D1.<br />
+          and rebuilt as a static, database-free site.<br />
           <span class="muted">Reference indebted to K.P.S. Menon, the Kerala Sahitya Academy, and
           Prof. Aimanam Krishna Kaimal's <em>Kathakali Vijnana Kosham</em>.</span>
         </div>
         <div>
-          <a href="/about">About &amp; provenance</a><br />
-          <a href="/performances">Performance archive</a><br />
-          <a href="/data">Open data</a>
+          <a href={link('/about')}>About &amp; provenance</a><br />
+          <a href={link('/performances')}>Performance archive</a><br />
+          <a href={link('/data')}>Open data</a>
         </div>
       </div>
     </footer>

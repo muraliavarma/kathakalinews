@@ -1,6 +1,7 @@
 ---
 import Site from '../layouts/Site.astro';
 import { stats } from '../lib/data';
+import { link } from '../lib/href';
 const c = stats();
 const files = [
   { href: '/data/performances.csv', name: 'performances.csv', desc: `${c.performances.toLocaleString()} performance records (2007–2011) — date, play, venue, district, artists, organiser, and the source quarter each row came from.` },
@@ -19,7 +20,7 @@ const files = [
   <div class="wrap" style="padding-top:1.4rem; max-width:820px;">
     <div class="grid cards" style="grid-template-columns:1fr;">
       {files.map((f) => (
-        <a class="card" href={f.href} download>
+        <a class="card" href={link(f.href)} download>
           <h3>⬇️ {f.name}</h3>
           <p>{f.desc}</p>
         </a>

@@ -1,6 +1,7 @@
 ---
 import Site from '../../layouts/Site.astro';
 import { stories, playKey, performancesForPlay } from '../../lib/data';
+import { link } from '../../lib/href';
 
 export function getStaticPaths() {
   return stories.map((s) => ({ params: { slug: s.slug }, props: { story: s } }));
@@ -20,7 +21,7 @@ const paras = (story.synopsis || '').split(/\n\n+/).filter(Boolean);
 
 <Site active="stories" title={story.title}>
   <div class="wrap">
-    <p class="crumbs"><a href="/stories">← Story library</a></p>
+    <p class="crumbs"><a href={link('/stories')}>← Story library</a></p>
     <div class="detail with-aside">
       <article>
         <div class="tag-row" style="margin-bottom:.4rem;">
@@ -41,8 +42,8 @@ const paras = (story.synopsis || '').split(/\n\n+/).filter(Boolean);
         )}
 
         <div class="pager" style="justify-content:space-between;">
-          <span>{prev ? <a href={`/stories/${prev.slug}`}>← {prev.title}</a> : <span class="muted">—</span>}</span>
-          <span>{next ? <a href={`/stories/${next.slug}`}>{next.title} →</a> : <span class="muted">—</span>}</span>
+          <span>{prev ? <a href={link(`/stories/${prev.slug}`)}>← {prev.title}</a> : <span class="muted">—</span>}</span>
+          <span>{next ? <a href={link(`/stories/${next.slug}`)}>{next.title} →</a> : <span class="muted">—</span>}</span>
         </div>
       </article>
 
@@ -51,7 +52,7 @@ const paras = (story.synopsis || '').split(/\n\n+/).filter(Boolean);
         {perf.length > 0 ? (
           <>
             <p style="margin:0 0 .6rem;"><strong style="font-size:1.5rem; color:var(--pacha-dark);">{perf.length}</strong> logged performance{perf.length === 1 ? '' : 's'} (2007–2011)</p>
-            <a class="btn ghost" href={`/performances?play=${encodeURIComponent(key)}`} style="margin-bottom:.8rem;">See all in the archive →</a>
+            <a class="btn ghost" href={link(`/performances?play=${encodeURIComponent(key)}`)} style="margin-bottom:.8rem;">See all in the archive →</a>
             <ul style="padding-left:1rem; font-size:.86rem;">
               {recent.map((r) => (<li style="margin-bottom:.4rem;"><strong>{r.date}</strong> — {r.venue_and_time || r.district || 'venue n/a'}</li>))}
             </ul>

@@ -1,6 +1,7 @@
 ---
 import Site from '../../layouts/Site.astro';
 import { stories } from '../../lib/data';
+import { link } from '../../lib/href';
 
 const epics = Array.from(new Set(stories.map((s) => s.epic).filter(Boolean))).sort();
 ---
@@ -22,7 +23,7 @@ const epics = Array.from(new Set(stories.map((s) => s.epic).filter(Boolean))).so
 
     <div class="grid cards" id="storygrid">
       {stories.map((s) => (
-        <a class="card" href={`/stories/${s.slug}`} data-epic={s.epic}>
+        <a class="card" href={link(`/stories/${s.slug}`)} data-epic={s.epic}>
           <div class="tag-row">
             <span class="badge">{String(s.num).padStart(2, '0')}</span>
             {s.epic && <span class="badge epic">{s.epic}</span>}

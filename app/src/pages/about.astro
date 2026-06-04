@@ -1,6 +1,7 @@
 ---
 import Site from '../layouts/Site.astro';
 import { stats } from '../lib/data';
+import { link } from '../lib/href';
 const c = stats();
 ---
 <Site active="about" title="About & provenance">
@@ -25,7 +26,7 @@ const c = stats();
       <p>A fully <strong>static</strong> site generated with Astro. There is no database and no server: the source
       of truth is plain JSON in the repository, every page is rendered to flat HTML at build time, and the
       performance archive is searched entirely in your browser. The whole thing is a flat file set that can be
-      hosted anywhere — or read offline from a folder. Everything is also published as <a href="/data">open data</a>.</p>
+      hosted anywhere — or read offline from a folder. Everything is also published as <a href={link('/data')}>open data</a>.</p>
       <p class="muted">Reference content is indebted to K.P.S. Menon, the Kerala Sahitya Academy, and
       Prof. Aimanam Krishna Kaimal's <em>Kathakali Vijnana Kosham</em>. Original site by K. Srikumar / Shyam Srikumar.</p>
     </div>

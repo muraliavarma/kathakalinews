@@ -1,6 +1,7 @@
 ---
 import Site from '../../layouts/Site.astro';
 import reference from '../../data/reference.json';
+import { link } from '../../lib/href';
 
 type Entry = { title: string; html: string };
 const ref = reference as Record<string, Entry>;
@@ -22,7 +23,7 @@ const clean = (entry?.html ?? '')
 
 <Site active="reference" title={entry?.title ?? 'Reference'}>
   <div class="wrap">
-    <p class="crumbs"><a href="/reference">← Reference library</a></p>
+    <p class="crumbs"><a href={link('/reference')}>← Reference library</a></p>
     <h1>{entry?.title}</h1>
     <div class="prose faithful" set:html={clean} />
     <p class="muted center" style="font-size:.82rem; margin-top:1.4rem;">Preserved verbatim from the original kathakalinews.com.</p>

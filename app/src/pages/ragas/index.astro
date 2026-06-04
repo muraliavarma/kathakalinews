@@ -1,6 +1,7 @@
 ---
 import Site from '../../layouts/Site.astro';
 import { ragas } from '../../lib/data';
+import { link } from '../../lib/href';
 ---
 
 <Site active="ragas" title="Raga catalogue">
@@ -8,7 +9,7 @@ import { ragas } from '../../lib/data';
     <p class="kicker">Sopana &amp; Carnatic ragas · {ragas.length} catalogued</p>
     <h1>Raga catalogue</h1>
     <p class="lead">The ragas used in Kathakali music, with their arohana / avarohana, parent (janya) raga, the rasa (mood) they evoke, and example padams — indebted to Prof. Aimanam Krishna Kaimal's <em>Kathakali Vijnana Kosham</em>.</p>
-    <p><a class="more" href="/reference/ragas_revisited">Read “Ragas revisited”, with commentary →</a></p>
+    <p><a class="more" href={link('/reference/ragas_revisited')}>Read “Ragas revisited”, with commentary →</a></p>
   </div></section>
 
   <div class="wrap" style="padding-top:1.4rem;">

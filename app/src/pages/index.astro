@@ -2,6 +2,7 @@
 import Site from '../layouts/Site.astro';
 import site from '../data/site.json';
 import { stats, topPlays, topDistricts, stories } from '../lib/data';
+import { link } from '../lib/href';
 
 const counts = stats();
 const plays = topPlays(8);
@@ -17,8 +18,8 @@ const maxPlay = Math.max(...plays.map((p) => p.n), 1);
       <h1>Kathakali News</h1>
       <p class="lead">{site.intro[0]}</p>
       <p style="margin-top:1.2rem; display:flex; gap:.6rem; flex-wrap:wrap;">
-        <a class="btn" href="/performances">Explore {counts.performances.toLocaleString()} performances →</a>
-        <a class="btn ghost" href="/stories">Read the {counts.stories} stories</a>
+        <a class="btn" href={link('/performances')}>Explore {counts.performances.toLocaleString()} performances →</a>
+        <a class="btn ghost" href={link('/stories')}>Read the {counts.stories} stories</a>
       </p>
     </div>
   </section>
@@ -35,11 +36,11 @@ const maxPlay = Math.max(...plays.map((p) => p.n), 1);
     <section class="section">
       <div class="section-head">
         <h2>Most-performed plays</h2>
-        <a class="more" href="/performances">Browse the full archive →</a>
+        <a class="more" href={link('/performances')}>Browse the full archive →</a>
       </div>
       <div class="grid" style="gap:.5rem;">
         {plays.map((p) => (
-          <a href={`/performances?play=${encodeURIComponent(p.play_key)}`} style="text-decoration:none; color:inherit;">
+          <a href={link(`/performances?play=${encodeURIComponent(p.play_key)}`)} style="text-decoration:none; color:inherit;">
             <div style="display:grid; grid-template-columns: minmax(120px,200px) 1fr 48px; align-items:center; gap:.7rem;">
               <span style="font-weight:600;">{p.play}</span>
               <span style="background:var(--paper-2); border-radius:6px; height:18px; display:block;">
@@ -53,10 +54,10 @@ const maxPlay = Math.max(...plays.map((p) => p.n), 1);
     </section>
 
     <section class="section">
-      <div class="section-head"><h2>Story library</h2><a class="more" href="/stories">All {counts.stories} plays →</a></div>
+      <div class="section-head"><h2>Story library</h2><a class="more" href={link('/stories')}>All {counts.stories} plays →</a></div>
       <div class="grid cards">
         {featured.map((s) => (
-          <a class="card" href={`/stories/${s.slug}`}>
+          <a class="card" href={link(`/stories/${s.slug}`)}>
             {s.epic && <span class="badge epic" style="align-self:flex-start;">{s.epic}</span>}
             <h3>{s.title}</h3>
             <span class="meta">{s.author || 'Unknown author'}</span>
@@ -66,10 +67,10 @@ const maxPlay = Math.max(...plays.map((p) => p.n), 1);
     </section>
 
     <section class="section">
-      <div class="section-head"><h2>Where Kathakali was staged</h2><a class="more" href="/performances">Filter by district →</a></div>
+      <div class="section-head"><h2>Where Kathakali was staged</h2><a class="more" href={link('/performances')}>Filter by district →</a></div>
       <div class="tag-row">
         {districts.map((d) => (
-          <a class="badge gold" href={`/performances?district=${encodeURIComponent(d.district)}`} style="text-decoration:none;">
+          <a class="badge gold" href={link(`/performances?district=${encodeURIComponent(d.district)}`)} style="text-decoration:none;">
             {d.district} · {d.n}
           </a>
         ))}
@@ -78,10 +79,10 @@ const maxPlay = Math.max(...plays.map((p) => p.n), 1);
 
     <section class="section">
       <div class="grid cards">
-        <a class="card" href="/ragas"><h3>🎼 Raga catalogue</h3><p>{counts.ragas} ragas with arohana / avarohana, janya, rasa and padam examples.</p></a>
-        <a class="card" href="/reference/attams"><h3>💃 Attams</h3><p>The elaki-attam improvisation set-pieces of Kathakali.</p></a>
-        <a class="card" href="/reference"><h3>📖 Epics in brief</h3><p>Ramayana, Mahabharata &amp; Bhagavata summaries underpinning the plays.</p></a>
-        <a class="card" href="/data"><h3>⬇️ Open data</h3><p>Every record as JSON &amp; CSV — sourced, citable, free to reuse.</p></a>
+        <a class="card" href={link('/ragas')}><h3>🎼 Raga catalogue</h3><p>{counts.ragas} ragas with arohana / avarohana, janya, rasa and padam examples.</p></a>
+        <a class="card" href={link('/reference/attams')}><h3>💃 Attams</h3><p>The elaki-attam improvisation set-pieces of Kathakali.</p></a>
+        <a class="card" href={link('/reference')}><h3>📖 Epics in brief</h3><p>Ramayana, Mahabharata &amp; Bhagavata summaries underpinning the plays.</p></a>
+        <a class="card" href={link('/data')}><h3>⬇️ Open data</h3><p>Every record as JSON &amp; CSV — sourced, citable, free to reuse.</p></a>
       </div>
     </section>
   </div>
