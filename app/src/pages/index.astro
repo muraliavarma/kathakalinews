@@ -1,0 +1,88 @@
+---
+import Site from '../layouts/Site.astro';
+import site from '../data/site.json';
+import { stats, topPlays, topDistricts, stories } from '../lib/data';
+
+const counts = stats();
+const plays = topPlays(8);
+const districts = topDistricts(10);
+const featured = stories.slice(0, 6);
+const maxPlay = Math.max(...plays.map((p) => p.n), 1);
+---
+
+<Site active="home">
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Reconstructed · 2008–2014 archive</p>
+      <h1>Kathakali News</h1>
+      <p class="lead">{site.intro[0]}</p>
+      <p style="margin-top:1.2rem; display:flex; gap:.6rem; flex-wrap:wrap;">
+        <a class="btn" href="/performances">Explore {counts.performances.toLocaleString()} performances →</a>
+        <a class="btn ghost" href="/stories">Read the {counts.stories} stories</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><div class="n">{counts.performances.toLocaleString()}</div><div class="l">performances logged (2007–2011)</div></div>
+      <div class="stat"><div class="n">{counts.plays}</div><div class="l">distinct plays performed</div></div>
+      <div class="stat"><div class="n">{counts.stories}</div><div class="l">attakatha synopses</div></div>
+      <div class="stat"><div class="n">{counts.ragas}</div><div class="l">ragas catalogued</div></div>
+      <div class="stat"><div class="n">{counts.districts}</div><div class="l">districts &amp; {counts.countries} countries</div></div>
+    </div>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Most-performed plays</h2>
+        <a class="more" href="/performances">Browse the full archive →</a>
+      </div>
+      <div class="grid" style="gap:.5rem;">
+        {plays.map((p) => (
+          <a href={`/performances?play=${encodeURIComponent(p.play_key)}`} style="text-decoration:none; color:inherit;">
+            <div style="display:grid; grid-template-columns: minmax(120px,200px) 1fr 48px; align-items:center; gap:.7rem;">
+              <span style="font-weight:600;">{p.play}</span>
+              <span style="background:var(--paper-2); border-radius:6px; height:18px; display:block;">
+                <span style={`display:block; height:100%; border-radius:6px; background:var(--pacha); width:${(p.n / maxPlay) * 100}%;`}></span>
+              </span>
+              <span class="muted" style="text-align:right;">{p.n}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Story library</h2><a class="more" href="/stories">All {counts.stories} plays →</a></div>
+      <div class="grid cards">
+        {featured.map((s) => (
+          <a class="card" href={`/stories/${s.slug}`}>
+            {s.epic && <span class="badge epic" style="align-self:flex-start;">{s.epic}</span>}
+            <h3>{s.title}</h3>
+            <span class="meta">{s.author || 'Unknown author'}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Where Kathakali was staged</h2><a class="more" href="/performances">Filter by district →</a></div>
+      <div class="tag-row">
+        {districts.map((d) => (
+          <a class="badge gold" href={`/performances?district=${encodeURIComponent(d.district)}`} style="text-decoration:none;">
+            {d.district} · {d.n}
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid cards">
+        <a class="card" href="/ragas"><h3>🎼 Raga catalogue</h3><p>{counts.ragas} ragas with arohana / avarohana, janya, rasa and padam examples.</p></a>
+        <a class="card" href="/reference/attams"><h3>💃 Attams</h3><p>The elaki-attam improvisation set-pieces of Kathakali.</p></a>
+        <a class="card" href="/reference"><h3>📖 Epics in brief</h3><p>Ramayana, Mahabharata &amp; Bhagavata summaries underpinning the plays.</p></a>
+        <a class="card" href="/data"><h3>⬇️ Open data</h3><p>Every record as JSON &amp; CSV — sourced, citable, free to reuse.</p></a>
+      </div>
+    </section>
+  </div>
+</Site>

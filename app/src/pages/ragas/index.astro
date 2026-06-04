@@ -1,0 +1,62 @@
+---
+import Site from '../../layouts/Site.astro';
+import { ragas } from '../../lib/data';
+---
+
+<Site active="ragas" title="Raga catalogue">
+  <section class="hero"><div class="wrap">
+    <p class="kicker">Sopana &amp; Carnatic ragas · {ragas.length} catalogued</p>
+    <h1>Raga catalogue</h1>
+    <p class="lead">The ragas used in Kathakali music, with their arohana / avarohana, parent (janya) raga, the rasa (mood) they evoke, and example padams — indebted to Prof. Aimanam Krishna Kaimal's <em>Kathakali Vijnana Kosham</em>.</p>
+    <p><a class="more" href="/reference/ragas_revisited">Read “Ragas revisited”, with commentary →</a></p>
+  </div></section>
+
+  <div class="wrap" style="padding-top:1.4rem;">
+    <form class="filters" onsubmit="return false;" style="grid-template-columns:1fr auto;">
+      <div><label for="q">Search ragas, rasa, or padam examples</label>
+        <input type="search" id="q" name="q" placeholder="e.g. Shoka, Bhairavi, Nalacharitham" autocomplete="off" /></div>
+      <div><span class="muted" id="rcount">{ragas.length} ragas</span></div>
+    </form>
+
+    <div class="grid" id="ragagrid" style="gap:1rem;">
+      {ragas.map((r) => (
+        <div class="card raga" id={r.slug} data-text={`${r.name} ${r.rasa} ${r.janya_of} ${r.examples} ${r.other_names}`.toLowerCase()} style="cursor:default;">
+          <div class="section-head" style="margin:0;">
+            <h3 style="margin:0;">{r.name}</h3>
+            {r.rasa && r.rasa !== '-' && <span class="badge epic">{r.rasa}</span>}
+          </div>
+          <table class="data" style="box-shadow:none; border:none; font-size:.85rem;">
+            <tbody>
+              {r.arohana && (<tr><th style="width:130px; background:transparent;">Arohana</th><td style="font-family:var(--serif);">{r.arohana}</td></tr>)}
+              {r.avarohana && (<tr><th style="background:transparent;">Avarohana</th><td style="font-family:var(--serif);">{r.avarohana}</td></tr>)}
+              {r.janya_of && (<tr><th style="background:transparent;">Janya of</th><td>{r.janya_of}</td></tr>)}
+              {r.other_names && r.other_names !== 'Nil' && (<tr><th style="background:transparent;">Other names</th><td>{r.other_names}</td></tr>)}
+              {r.examples && (<tr><th style="background:transparent;">Examples</th><td>{r.examples}</td></tr>)}
+            </tbody>
+          </table>
+        </div>
+      ))}
+    </div>
+    <p class="center muted" id="noresult" style="display:none; padding:2rem;">No ragas match your search.</p>
+  </div>
+</Site>
+
+<script>
+  const q = document.getElementById('q') as HTMLInputElement;
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('#ragagrid .raga'));
+  const count = document.getElementById('rcount')!;
+  const none = document.getElementById('noresult')!;
+  function apply() {
+    const term = q.value.trim().toLowerCase();
+    let shown = 0;
+    cards.forEach((c) => {
+      const match = !term || (c.getAttribute('data-text') || '').includes(term);
+      c.style.display = match ? '' : 'none';
+      if (match) shown++;
+    });
+    count.textContent = `${shown} raga${shown === 1 ? '' : 's'}`;
+    none.style.display = shown === 0 ? '' : 'none';
+  }
+  let t: number;
+  q.addEventListener('input', () => { clearTimeout(t); t = window.setTimeout(apply, 120); });
+</script>

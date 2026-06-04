@@ -1,0 +1,153 @@
+/* kathakalinews.com — Aattam knowledge base
+   Palette drawn from Kathakali vesham (make-up):
+   pacha (green), chuvanna thaadi (red), manayola (gold), kari (black), cream paper. */
+:root {
+  --pacha: #0f7a43;
+  --pacha-dark: #0a5630;
+  --chuvanna: #b3261e;
+  --manayola: #f3c23b;
+  --kari: #1c140d;
+  --maroon: #5d1a14;
+  --paper: #fbf5e9;
+  --paper-2: #f3e9d2;
+  --ink: #241a12;
+  --muted: #6f6151;
+  --line: #e2d4b8;
+  --shadow: 0 1px 2px rgba(28, 20, 13, .08), 0 6px 20px rgba(28, 20, 13, .06);
+  --radius: 12px;
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--pacha-dark); text-underline-offset: 2px; }
+a:hover { color: var(--chuvanna); }
+h1, h2, h3, h4 { font-family: var(--serif); line-height: 1.2; color: var(--maroon); margin: 0 0 .5em; }
+img { max-width: 100%; height: auto; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.1rem; }
+
+/* ---------- Header / nav ---------- */
+.masthead {
+  background: linear-gradient(180deg, var(--kari), #2c2012);
+  color: var(--paper);
+  border-bottom: 4px solid var(--manayola);
+}
+.masthead .wrap { display: flex; align-items: center; gap: 1rem; padding: .7rem 1.1rem; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--paper); }
+.brand b { font-family: var(--serif); font-size: 1.35rem; letter-spacing: .3px; color: #fff; }
+.brand .tag { font-size: .72rem; color: var(--manayola); text-transform: uppercase; letter-spacing: 1.5px; }
+.brand .dot { width: 34px; height: 34px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--pacha) 0 46%, var(--manayola) 47% 64%, var(--chuvanna) 65% 100%);
+  box-shadow: 0 0 0 2px var(--kari) inset; flex: none; }
+nav.main { margin-left: auto; display: flex; gap: .15rem; flex-wrap: wrap; }
+nav.main a {
+  color: #f0e6d2; text-decoration: none; font-size: .92rem; font-weight: 600;
+  padding: .38rem .6rem; border-radius: 8px;
+}
+nav.main a:hover, nav.main a[aria-current="page"] { background: rgba(243, 194, 59, .18); color: #fff; }
+
+/* ---------- Hero ---------- */
+.hero { background: var(--paper-2); border-bottom: 1px solid var(--line); }
+.hero .wrap { padding: 2.4rem 1.1rem; }
+.hero h1 { font-size: clamp(1.8rem, 4vw, 2.9rem); margin-bottom: .3rem; }
+.hero p.lead { font-size: 1.1rem; max-width: 62ch; color: #4a3c2c; }
+.kicker { color: var(--chuvanna); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: .78rem; }
+
+/* ---------- Stat tiles ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .9rem; margin: 1.6rem 0; }
+.stat { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.1rem; box-shadow: var(--shadow); }
+.stat .n { font-family: var(--serif); font-size: 2rem; color: var(--pacha-dark); font-weight: 700; }
+.stat .l { color: var(--muted); font-size: .85rem; }
+
+/* ---------- Cards ---------- */
+.grid { display: grid; gap: 1rem; }
+.cards { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.card {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.1rem; box-shadow: var(--shadow); text-decoration: none; color: var(--ink);
+  display: flex; flex-direction: column; gap: .35rem; transition: transform .12s ease, box-shadow .12s ease;
+}
+a.card:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(28,20,13,.12); border-color: var(--manayola); }
+.card h3 { margin: 0; font-size: 1.12rem; }
+.card .meta { color: var(--muted); font-size: .82rem; }
+.card p { margin: .2rem 0 0; font-size: .92rem; color: #3f3326; }
+
+/* ---------- Badges ---------- */
+.badge { display: inline-block; font-size: .72rem; font-weight: 700; padding: .12rem .5rem; border-radius: 999px;
+  background: var(--paper-2); color: var(--maroon); border: 1px solid var(--line); }
+.badge.epic { background: #e7f3ea; color: var(--pacha-dark); border-color: #bfe0c9; }
+.badge.gold { background: #fdf2cf; color: #8a6d12; border-color: #ecd687; }
+
+/* ---------- Section headings ---------- */
+.section { padding: 2rem 0; }
+.section h2 { font-size: 1.7rem; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.section-head a.more { font-weight: 600; font-size: .9rem; }
+
+/* ---------- Tables ---------- */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; box-shadow: var(--shadow); }
+table.data { border-collapse: collapse; width: 100%; font-size: .9rem; }
+table.data th, table.data td { text-align: left; padding: .55rem .7rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.data thead th { background: var(--paper-2); color: var(--maroon); position: sticky; top: 0; font-family: var(--serif); }
+table.data tbody tr:hover { background: #fcf7ea; }
+.nowrap { white-space: nowrap; }
+
+/* ---------- Filters / forms ---------- */
+.filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .7rem; align-items: end;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem; box-shadow: var(--shadow); margin-bottom: 1.2rem; }
+label { font-size: .8rem; font-weight: 600; color: var(--muted); display: block; margin-bottom: .25rem; }
+input[type=text], input[type=search], input[type=date], select, textarea {
+  width: 100%; padding: .5rem .6rem; border: 1px solid var(--line); border-radius: 8px;
+  font: inherit; background: var(--paper); color: var(--ink);
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--pacha); border-color: var(--pacha); }
+.btn { display: inline-block; cursor: pointer; border: none; border-radius: 8px; font: inherit; font-weight: 700;
+  padding: .55rem 1rem; background: var(--pacha); color: #fff; text-decoration: none; }
+.btn:hover { background: var(--pacha-dark); color: #fff; }
+.btn.alt { background: var(--chuvanna); }
+.btn.ghost { background: transparent; color: var(--pacha-dark); border: 1px solid var(--line); }
+
+/* ---------- Pagination ---------- */
+.pager { display: flex; gap: .5rem; align-items: center; justify-content: center; margin: 1.4rem 0; flex-wrap: wrap; }
+.pager a, .pager span { padding: .4rem .75rem; border-radius: 8px; border: 1px solid var(--line); background: #fff; text-decoration: none; }
+.pager .cur { background: var(--maroon); color: #fff; border-color: var(--maroon); }
+.pager .disabled { opacity: .4; pointer-events: none; }
+
+/* ---------- Prose ---------- */
+.prose { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem 1.6rem; box-shadow: var(--shadow); }
+.prose p { margin: 0 0 1rem; }
+.prose h2, .prose h3 { margin-top: 1.4rem; }
+.prose.faithful { font-family: var(--serif); }
+
+/* ---------- Detail layout ---------- */
+.detail { display: grid; grid-template-columns: 1fr; gap: 1.2rem; }
+@media (min-width: 820px) { .detail.with-aside { grid-template-columns: 2fr 1fr; } }
+.aside { background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.1rem; height: fit-content; }
+.aside dl { margin: 0; }
+.aside dt { font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-top: .7rem; }
+.aside dd { margin: 0; font-weight: 600; }
+
+.crumbs { font-size: .85rem; color: var(--muted); margin: 1rem 0; }
+.crumbs a { color: var(--muted); }
+
+.note { background: #fff7e6; border: 1px solid #ecd687; border-radius: 10px; padding: .8rem 1rem; font-size: .9rem; }
+
+/* ---------- Footer ---------- */
+footer.site { background: var(--kari); color: #d8cdb8; margin-top: 3rem; border-top: 4px solid var(--pacha); }
+footer.site .wrap { padding: 1.6rem 1.1rem; display: flex; gap: 1.2rem; justify-content: space-between; flex-wrap: wrap; font-size: .88rem; }
+footer.site a { color: var(--manayola); }
+.muted { color: var(--muted); }
+.center { text-align: center; }
+.tag-row { display: flex; gap: .4rem; flex-wrap: wrap; }
+.embed { position: relative; padding-bottom: 56.25%; height: 0; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: #000; }
+.embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }

@@ -1,0 +1,70 @@
+---
+import Site from '../../layouts/Site.astro';
+import { stories, playKey, performancesForPlay } from '../../lib/data';
+
+export function getStaticPaths() {
+  return stories.map((s) => ({ params: { slug: s.slug }, props: { story: s } }));
+}
+
+const { story } = Astro.props;
+const key = playKey(story.title);
+const perf = performancesForPlay(key);
+const recent = perf.slice(0, 6);
+
+const idx = stories.findIndex((s) => s.slug === story.slug);
+const prev = idx > 0 ? stories[idx - 1] : null;
+const next = idx < stories.length - 1 ? stories[idx + 1] : null;
+
+const paras = (story.synopsis || '').split(/\n\n+/).filter(Boolean);
+---
+
+<Site active="stories" title={story.title}>
+  <div class="wrap">
+    <p class="crumbs"><a href="/stories">← Story library</a></p>
+    <div class="detail with-aside">
+      <article>
+        <div class="tag-row" style="margin-bottom:.4rem;">
+          <span class="badge">{String(story.num).padStart(2, '0')}</span>
+          {story.epic && <span class="badge epic">{story.epic}</span>}
+        </div>
+        <h1 style="margin-bottom:.1rem;">{story.title}</h1>
+        <p class="muted" style="margin-top:0;">{story.author || 'Unknown author'}{story.life_dates ? ` (${story.life_dates})` : ''}</p>
+
+        <div class="prose faithful" style="margin-top:1rem;">
+          {paras.map((p) => (<p>{p}</p>))}
+        </div>
+
+        {story.vesham && (
+          <div class="note" style="margin-top:1rem;">
+            <strong>Vesham (make-up &amp; character types):</strong> {story.vesham}
+          </div>
+        )}
+
+        <div class="pager" style="justify-content:space-between;">
+          <span>{prev ? <a href={`/stories/${prev.slug}`}>← {prev.title}</a> : <span class="muted">—</span>}</span>
+          <span>{next ? <a href={`/stories/${next.slug}`}>{next.title} →</a> : <span class="muted">—</span>}</span>
+        </div>
+      </article>
+
+      <aside class="aside">
+        <h3 style="margin-top:0;">Performance record</h3>
+        {perf.length > 0 ? (
+          <>
+            <p style="margin:0 0 .6rem;"><strong style="font-size:1.5rem; color:var(--pacha-dark);">{perf.length}</strong> logged performance{perf.length === 1 ? '' : 's'} (2007–2011)</p>
+            <a class="btn ghost" href={`/performances?play=${encodeURIComponent(key)}`} style="margin-bottom:.8rem;">See all in the archive →</a>
+            <ul style="padding-left:1rem; font-size:.86rem;">
+              {recent.map((r) => (<li style="margin-bottom:.4rem;"><strong>{r.date}</strong> — {r.venue_and_time || r.district || 'venue n/a'}</li>))}
+            </ul>
+          </>
+        ) : (
+          <p class="muted">No performances of this play were logged in the 2007–2011 archive.</p>
+        )}
+        <dl>
+          <dt>Source epic</dt><dd>{story.epic || 'Various / Puranic'}</dd>
+          <dt>Composer</dt><dd>{story.author || 'Unknown'}</dd>
+          {story.life_dates && (<><dt>Composer dates</dt><dd>{story.life_dates}</dd></>)}
+        </dl>
+      </aside>
+    </div>
+  </div>
+</Site>

@@ -1,0 +1,32 @@
+---
+import Site from '../../layouts/Site.astro';
+import reference from '../../data/reference.json';
+
+const order = ['ramayana', 'mahabharata', 'bhagavata', 'attams', 'ragas_revisited'] as const;
+const blurbs: Record<string, string> = {
+  ramayana: 'The Ramayana in brief — the epic source for plays from Sita Swayamvaram to Bali Vadham.',
+  mahabharata: 'The Mahabharata in brief — source of the Pandava plays: Kalyana Saugandhikam, Kiratham, Keechakavadham and more.',
+  bhagavata: 'The Bhagavata in brief — the Krishna stories behind Kamsa Vadham, Santhana Gopalam, Puthana Moksham.',
+  attams: 'Attams (“elaki-attams”) — the great improvised set-pieces interpolated into Kathakali plays.',
+  ragas_revisited: 'Ragas revisited — a commentary on how ragas are deployed in Kathakali, beyond the bare catalogue.',
+};
+---
+
+<Site active="reference" title="Reference">
+  <section class="hero"><div class="wrap">
+    <p class="kicker">Background &amp; sources</p>
+    <h1>Reference library</h1>
+    <p class="lead">The epics, improvisations and musical commentary that underpin the Kathakali repertoire — preserved verbatim from the original site.</p>
+  </div></section>
+
+  <div class="wrap" style="padding-top:1.4rem;">
+    <div class="grid cards">
+      {order.map((key) => (
+        <a class="card" href={`/reference/${key}`}>
+          <h3>{(reference as any)[key].title}</h3>
+          <p>{blurbs[key]}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</Site>

@@ -1,0 +1,492 @@
+[
+ {
+  "name": "AHARI",
+  "slug": "ahari",
+  "arohana": "Sa Ri Sa Ma Ga Pa Dha Ni Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ri Sa",
+  "other_names": "Aahiri",
+  "janya_of": "Vakulabharana or Hanumathodi",
+  "rasa": "Shoka.",
+  "examples": "1. Nalacharitham 1 \"Kandalethrayum Kauthukam\" was in Ahari. Now changed to Erikila Kamodari. 2. Narakasura Vadham.\"Sudhashanendra Vada\""
+ },
+ {
+  "name": "ANANDA BHAIRAVI",
+  "slug": "ananda-bhairavi",
+  "arohana": "Sa Ga Ri Ga Ma Pa Dha Pa Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Nabhairavi or Kharaharapriya",
+  "rasa": "Shoka or Karuna in Kathakali ( Unlike the name suggests)",
+  "examples": "1. Kuchela Patni to Kuchela \"Sarasa Nethra Porume\" 2. Kalakeya Vadham \"Daivame , ha ha Daivame\" 3. Rambha in Ravana Vijayam \"Ashara Nadha Munjama\" 4. Gopalas in Uttara Swayamvara \"Paahi Mam, Veera , Paahi Mam\""
+ },
+ {
+  "name": "ASAVERI",
+  "slug": "asaveri",
+  "arohana": "Sa Ri Ma Pa Dha Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ri Ga Ri Sa ( or Sa Ni Sa Pa DHa Pa Ma Ri Gaa Ri Sa Sa Ni Dha Pa Ma Ga Ri Sa)",
+  "other_names": "Nil",
+  "janya_of": "Hanumathodi",
+  "rasa": "-",
+  "examples": "In Thekkan Rajasooya \"Veera Bhoopathi Vara Dheera, Kelka Vachanam, Veera Bhoopathi Vara Dheera\""
+ },
+ {
+  "name": "ATDANA",
+  "slug": "atdana",
+  "arohana": "Sa Ri Ma Pa Ni Sa",
+  "avarohana": "Sa Dha Ni Pa Ni Sa",
+  "other_names": "Adtana Kanad",
+  "janya_of": "Dheera Sankarabharana. Some see it as janya of Asaver Dhat and others as of Kapi Dhat.",
+  "rasa": "Shringra, Veera, Karuna",
+  "examples": "Devayani to Kacha \"Paani Peedanam Me Prana Sama Tharika, kama Keli Cheyvathinu Kani Thamasikkolla\"."
+ },
+ {
+  "name": "BALAHARI",
+  "slug": "balahari",
+  "arohana": "Sa Ri Ga Pa Dha Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Dheera Sankarabharana.",
+  "rasa": "All Bhavas, Veera bhava is main",
+  "examples": "1. Bheema to Panchali in Keechaka Vadham \"Mathi, Mathi, Mathi Mukhi\" 2. Daksha yagam \"Kanyakamar Mauli mane\" 3. Chedi Rani to Damayanthi \"Kim Devi KImu Kinnari Sundari\""
+ },
+ {
+  "name": "BHAIRAVI",
+  "slug": "bhairavi",
+  "arohana": "Sa Ri Ga Ma Pa Dha Ni Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Natda Bhairavi",
+  "rasa": "Gaurava Bhava",
+  "examples": "1. Porappadu Padam 2. \"Santhapamarudarude\" in Daksha Yagam 3. Nalacharitham 4th day \"Iryathe ellam shobhana Vani\""
+ },
+ {
+  "name": "BHOOPALAM",
+  "slug": "bhoopalam",
+  "arohana": "Sa Ri Ga Pa Dha Sa",
+  "avarohana": "Sa Dha Pa Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Madhamalava Gaula",
+  "rasa": "Success, Satisfaction, to be sung at day break.",
+  "examples": "1. Bali to Ravana in Bali Vijayam \" Pankthi Kantha, Rakshasendra\" 2. \"Vidyujiha Veeraraniyunna\" in Ravana Vijayam."
+ },
+ {
+  "name": "CHENCHURUTTI",
+  "slug": "chenchurutti",
+  "arohana": "Dha Sa Ri Ga Ma Pa Dha Ni",
+  "avarohana": "Dha Pa Ma Ga Ri Sa Ni Dha Pa Dha Sa",
+  "other_names": "Nil",
+  "janya_of": "Harikamboji",
+  "rasa": "-",
+  "examples": "Doothu In Duryodhana Vadham \" Jnathi Valsala Bhoori Bhoothitha\""
+ },
+ {
+  "name": "DEVA GANDHARAM",
+  "slug": "deva-gandharam",
+  "arohana": "Sa Ri Ma Pa Dha Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Dheera Sankarabharana",
+  "rasa": "Appeal, Fear, Bhakti",
+  "examples": "1. Arjuna to Krishna in Santhanagopalam \" Naadha, Bhava Charana Dasaram\" 2. Krishna to Balarama in Kamsa Vadham \" Arya Kalaye Vibh"
+ },
+ {
+  "name": "DESHAKSHI",
+  "slug": "deshakshi",
+  "arohana": "Sa Ri Ga Pa Dha Sa",
+  "avarohana": "Sa NI Dha Pa Ma Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Harikamboji",
+  "rasa": "Happiness",
+  "examples": "Nalacharotham 2, Bhima Raja to Damayanthi \" Ninakku Kushalam Baale\""
+ },
+ {
+  "name": "DHANYASI / MARADHANASHI",
+  "slug": "dhanyasi-maradhanashi",
+  "arohana": "Sa Ga MaPa Ni Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ri Sa",
+  "other_names": "MARADHANASHI",
+  "janya_of": "Hanumathodi",
+  "rasa": "Adbhuta",
+  "examples": "1. Nalacharotham 3, Sudeva to Rithuparna \"Manya mathe akhila bhuvana thava kirthe\". 2. Maradhanashi - Dharmaputhra to Guru Dhaumya \"Thapasa Maule Jaya Jaya\""
+ },
+ {
+  "name": "DVIJAVANTHI",
+  "slug": "dvijavanthi",
+  "arohana": "Sa Ri Ma Ga Ma Pa Dha Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ma Ri Ga Ri Sa Ni Dha Ni Sa",
+  "other_names": "Nil",
+  "janya_of": "Harikamboji",
+  "rasa": "Changing or Chanchala Bhavas",
+  "examples": "1. Nalacharotham 3, Nala to himself \" Mariman Kanni Mauliyude\" 2. Kacha Devayani, Devayani to Kacha \"\"Bandhamenthitu thava\" 3. Kalakeya Vadham, Urvashi to Arjuna \"Vallathennalumitu thava\""
+ },
+ {
+  "name": "ERIKKILA KAMODARI",
+  "slug": "erikkila-kamodari",
+  "arohana": "Sa Ri Ma Pa Dha Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ri Sa",
+  "other_names": "Yadukula Kamboji",
+  "janya_of": "Harikamboji",
+  "rasa": "mainly for women",
+  "examples": "1. Nalacharotham 3, Damayanthi to Sudeva \" Karaniyam Njanonnu Cholluvan\" 2. Poothana Moksham \"Sukumara, Nandakumara, Varikarikil\" 3. Dakshayagom, Sathi to Shiva \"Lokadhipa, Kantha, Karunalaya\""
+ },
+ {
+  "name": "GAULI PANTHU",
+  "slug": "gauli-panthu",
+  "arohana": "Sa Ri Ma Pa Ni Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Pa Dha Ma Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Mayamalavagaula",
+  "rasa": "Karuna Rasa",
+  "examples": "1. Nalacharitham 2, Nala after loosing his clothes \" Orunaalum Nirupitha malle\" 2. Nalacharitham 3, Kali \" Naishadhendra Ninnodu Njan Neruthanne Chollam\""
+ },
+ {
+  "name": "GHANTARAM",
+  "slug": "ghantaram",
+  "arohana": "-",
+  "avarohana": "-",
+  "other_names": "Dukha Ghantaram",
+  "janya_of": "Similarity to Ghanta in Karnatic Music",
+  "rasa": "Sorrow with pride",
+  "examples": "1. Santhanagopalam, Brahmin with dead child \"Ha Ha Karimi Kimi\" 2. Swan in Nalacharitham 1 \"Shiva Shiva Enthu Cheyvu Njan\" 3. Uttara Swayamvaram, Duryodhana \" Medini Palanmare, Kelpin\""
+ },
+ {
+  "name": "GOPIKA VASANTHAM",
+  "slug": "gopika-vasantham",
+  "arohana": "Sa Ma Pa Ni Dha Ni Dhaa Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Sa",
+  "other_names": "Nil",
+  "janya_of": "Natda bhairavi",
+  "rasa": "Sorrow",
+  "examples": "Panchali in Keechakavadham \" Kantha, Kripalo, Kathu Kolka\""
+ },
+ {
+  "name": "INDALAM",
+  "slug": "indalam",
+  "arohana": "Sa Ma Ga Ma Dha Ni Sa",
+  "avarohana": "Sa Ni Dha Ma Ga Sa",
+  "other_names": "Hindolam",
+  "janya_of": "Natda Bhairav",
+  "rasa": "Intense emotions and Blessings",
+  "examples": "Rukmangadha Charitha \" Kannuneeralpavum kannilulavakathe\" Shiva to Arjuna in Kiratham \"Uthishta Thishta Sukumara Kalebara\""
+ },
+ {
+  "name": "KALYANI",
+  "slug": "kalyani",
+  "arohana": "-",
+  "avarohana": "-",
+  "other_names": "Mecha kalyani",
+  "janya_of": "-",
+  "rasa": "Happiness, Shringara and Veera",
+  "examples": "1. Daksha in Daksha Yagam \" Kannina kkanandam nalkidunnu Paaram\" 2. Nala in Nalacharitham 1 \" Kundina nayaka nandini kkothoru, Pennilla mannil\" 3. Nala in Nalacharitham 3 \" Enne Chathicha ni evide Poyidunnu\""
+ },
+ {
+  "name": "KAMBOJI / KAMODARI",
+  "slug": "kamboji-kamodari",
+  "arohana": "Sa Ri Ga Ma Pa Dha Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ri Sa",
+  "other_names": "KAMODARI",
+  "janya_of": "Harikamboji",
+  "rasa": "Happiness, Shringara, Veera",
+  "examples": "1. Nalacharitham 1 , Swan to Nala \" Urjitha ashaya parthiva thava Njan\" 2. Kirmira Vadham, Lalitha to Panchali \"Kandal athi modam Unday varum Vipinam Ithu Kandaayo\" 3. Keechaka Vadham, Keechaka to Sairandhri \" Harinakshi jana mauli Mane Ni\" 4. Uttara Swayamvaram, Dootha to Duryodhana' \" Jaya jaya naga kethana jagathipathe\""
+ },
+ {
+  "name": "KAPI",
+  "slug": "kapi",
+  "arohana": "Sa Ri Ma Pa Ni Sa",
+  "avarohana": "Sa Ni Dha Ni Pa Ma Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Kharaharapriya",
+  "rasa": "Happiness with Satiafaction",
+  "examples": "1. Nalacharotham 4, dasi to damayanthi \" Poomathinotha Charuthano, VaidharbhiKel ni, Purusharathnami Bahuka no\" 2. Uttaraswayamvaram \" Dharani valalbha shrunu V"
+ },
+ {
+  "name": "KEDARAGAULA",
+  "slug": "kedaragaula",
+  "arohana": "Sa Ri Ma Pa Ni Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ri Sa",
+  "other_names": "Kedaragauda",
+  "janya_of": "Harikamboji",
+  "rasa": "General and Veera, First Vandana Sloka should be in Kedaragaula (usually 'Mathanganana Abja vasa Ramani')",
+  "examples": "1. Nalacharotham 2, Pushkara to Nala \"Undakenda, Ithinundakenda \" 2. Duryodhana Vadham, Dussasana to Duryodhana \" Agraja, Kurudwaha, Samagrabala\" 3. Uttaraswayamvaram, \"Mudhamathe, Rananatakamaduka Padachchakeeda\""
+ },
+ {
+  "name": "KEDARAPANTHU",
+  "slug": "kedarapanthu",
+  "arohana": "-",
+  "avarohana": "-",
+  "other_names": "Ragothamsa",
+  "janya_of": "Ragothamsa",
+  "rasa": "Women",
+  "examples": "Duryodhana Vadham, Bhanumathi to Duryodhana \"Vallabha, Mullasharopama\""
+ },
+ {
+  "name": "MADHYAMAVATHI",
+  "slug": "madhyamavathi",
+  "arohana": "Sa Ri Ma Pa Ni Sa",
+  "avarohana": "Sa Ni Pa Ma Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Harikamboji",
+  "rasa": "Happiness with Acceptance, Conclusions",
+  "examples": "1. Nalacharotham 3, Sudeva to Damayanthi \" Yami Yami Bhaimi Kamitham\" 2. Conclusion - Dhanashi 3. Conclusion of Mela Padam \" Vihitha Padmavathi Sukha Samaje\""
+ },
+ {
+  "name": "MAHURI",
+  "slug": "mahuri",
+  "arohana": "-",
+  "avarohana": "-",
+  "other_names": "Shrigatham",
+  "janya_of": "-",
+  "rasa": "General, Also Used in 'Dandaka' ie. Narrator's Interjection",
+  "examples": "Panchali Swayamvaram,\" Shrunutha Ningal Vachanam me\""
+ },
+ {
+  "name": "MALAHARI",
+  "slug": "malahari",
+  "arohana": "Sa Ri Ma Pa Dha Sa",
+  "avarohana": "Sa Dha Pa Ma Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Mayamalavagaula",
+  "rasa": "Bhakthi, Prema",
+  "examples": "1. Rajasooyam, \" Pankajaksha pahi Shaure\" 2. Subhadraharanam \" madhavi Shrunu Mavaka Jaye\""
+ },
+ {
+  "name": "MOHANAM",
+  "slug": "mohanam",
+  "arohana": "Sa Ri Ga Pa Dha Sa",
+  "avarohana": "Sa Dha Pa Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Harikamboji",
+  "rasa": "Bhakthi",
+  "examples": "1. Arjuna in Kiratha \" Manmadha nashana Mama karma mevamo\" 2. Nalacharitham 1 Nala to Indra \" Sharanam Deveshwara\""
+ },
+ {
+  "name": "MUKHARI",
+  "slug": "mukhari",
+  "arohana": "Sa Ri Ma Pa Ni Dha Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ri Sa",
+  "other_names": "Ishai in Karnatic Music",
+  "janya_of": "Natda Bhairavi",
+  "rasa": "Dukha",
+  "examples": "1. Nalacharotham 4, Damayanthi thinking \" Naishadhan Ivan thano ?\" 2. Keechaka vadham \" Kekaya Bhupathi kanye\" 3. Duryodhana vadham, Yudhishtira to Krishna \" Jaya Jaya Janardhana\""
+ },
+ {
+  "name": "NADHANAMAKRIYA",
+  "slug": "nadhanamakriya",
+  "arohana": "Ni Sa Ri Ga Ma Pa Dha Ni",
+  "avarohana": "Ni Dha Pa Ma Ga Ri Sa Ni",
+  "other_names": "Nadharamakriya, Nadharamagri, Nadhanadakriya",
+  "janya_of": "Mayamalavagaula",
+  "rasa": "Shoka",
+  "examples": "1. Kuchela Vrittam, Kuchela patni to Kuchala \" Karunya Nidhe Kanta\" 2. Devayani to Kacha when Kacha tries to go off without informing \"Sundara Kalebara, nandita Sura vara, Sundaree Chitta Chora, Nandiyode kelka Veera\""
+ },
+ {
+  "name": "NAGAVARALI",
+  "slug": "nagavarali",
+  "arohana": "Sa Ri Ga Ma Ni Dha Ni Pa Dha Ni Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Hanumathodi",
+  "rasa": "-",
+  "examples": "1. Uttara Swayamvaram, Virata to Yudhishtira \" Chootu Kalichitenam Innaho Nam\"eera\""
+ },
+ {
+  "name": "NATTAKURINJI",
+  "slug": "nattakurinji",
+  "arohana": "Sa Ri Ga Ma Dha Ni Sa",
+  "avarohana": "Sa Ni Dha Ma Ga Sa",
+  "other_names": "Nil",
+  "janya_of": "Harikamboji",
+  "rasa": "Sadness",
+  "examples": "1.Nalacharotham 3, Nala (Bahuka) to Rituparna \" Rituparna Dharanipala Jayikkenam \" 2. Lavanasuara Vadham, Hanuman to Sita \"Sukhamo devi? Sampradamiha the\""
+ },
+ {
+  "name": "NAVARASAM",
+  "slug": "navarasam",
+  "arohana": "Pa Dha Ni Sa Ri Ga Ma Pa",
+  "avarohana": "Pa Ma Ga Ri Sa Ni Dha Pa",
+  "other_names": "Navaroj",
+  "janya_of": "Dheera Snkarabharanam",
+  "rasa": "Happiness and Wonder",
+  "examples": "1. Kirmira Vadham, Lalitha to Panchali \" Nallarkulam Aniyum Mauli Male\" 2. Duryodhana Vadham, Panchali to Krishna \" Paripahi, Paripahi, Pahimam Hare\" 3. Daksha Yagam, Daksha to his wife \"Anantha Janmarjithamamasmal Punyaphalam"
+ },
+ {
+  "name": "NEELAMBARI",
+  "slug": "neelambari",
+  "arohana": "Sa Ri Ga Ma Pa Dha Ni Sa",
+  "avarohana": "Sa Ni Pa Ma Ga Ri Ga Sa",
+  "other_names": "Nil",
+  "janya_of": "Dheera Sankarabharanam",
+  "rasa": "Sadness and Prayer",
+  "examples": "1. Daksha Yagam, Sathi's Prayer \" Sri Nilakanda Guna Sindho\" 2. Kalyana Saugandhikam, Hanuman to Bhima \" Nripathe njanum upacharadikal\""
+ },
+ {
+  "name": "PADI",
+  "slug": "padi",
+  "arohana": "Sa Ri Ma Pa Ni Sa",
+  "avarohana": "Sa Ni Pa Dha Pa Ma Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Mayamalavagaula or Harikamboji",
+  "rasa": "Main Shringara Padams of Kathi Veshams",
+  "examples": "1. Keechaka Vadham, Keechaka to Panchali \" Malini, Ruchira Guna Shalini\" 2. All main Kathi Veshams have one padam in this raga."
+ },
+ {
+  "name": "PANTHUVARALI",
+  "slug": "panthuvarali",
+  "arohana": "Sa Ri Ga Ma Pa Dha Ni Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ri Sa",
+  "other_names": "Kamavardhini",
+  "janya_of": "same as Kamavardhini",
+  "rasa": "General and Veera",
+  "examples": "1. Nalacharitham 2, Kattala hearing Damayanthi's cries \" Aravam Inthethennu Ariyunnatho iha Ghora Vanathil Nin Uthirnatho ?\" 2. Keechaka Vadham \"Veerarayidunna Ningalaraho\" 3. Duryodhana Vadham, Duryodhana to Assembly \"Uchithamaho mama Ruchitam\""
+ },
+ {
+  "name": "PUNNAGAVARALI",
+  "slug": "punnagavarali",
+  "arohana": "Ni Sa Ri Ga Ma Pa Dha Ni",
+  "avarohana": "Ni Dha Pa Ma Ga Ri Sa Ni",
+  "other_names": "Nil",
+  "janya_of": "Hanumathodi",
+  "rasa": "Vilapam or Crying",
+  "examples": "1. Nalacharotham 2, Damayanthi Crying \" Alasitha Vilasitha mathinal njan Urangidinene\" 2. Santhanagopalam , Arjuna \" Karuna Varidhe, Krishna, naraneyum chathichayo?\""
+ },
+ {
+  "name": "PURANEERU",
+  "slug": "puraneeru",
+  "arohana": "-",
+  "avarohana": "-",
+  "other_names": "Nil",
+  "janya_of": "-",
+  "rasa": "Mostly last scene just after dawn",
+  "examples": "Santhanagopalam, Brahmin to Arjuna \"Namasthe, Bhusura maule, Kshamaswaparadham\" Rukmangada Charitham, Vishnu to Rukmangadad \" Vadhichidolla Balane\" Nalacharotham 1, 'Analpam Vamasthu Bhavam\""
+ },
+ {
+  "name": "PURVAKALYANI",
+  "slug": "purvakalyani",
+  "arohana": "Sa Ri Ga Ma Pa Dha Ni Pa Dha Pa Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Gamanashrama",
+  "rasa": "Happiness",
+  "examples": "1. Nalacharitham 3, \" Kadraveya Kulathilaka\" 2. Nalacharitham 2, Damayanthi describing the garden \" Samya akannorudyanam ethrayum Abhikamyam\""
+ },
+ {
+  "name": "SAMANTHALAHARI",
+  "slug": "samanthalahari",
+  "arohana": "-",
+  "avarohana": "-",
+  "other_names": "Nil",
+  "janya_of": "-",
+  "rasa": "Requisitions",
+  "examples": "1. Narakasura vadham, Lalitha to Jayantha \" Vritta vairi nandana, Kel\" 2. Kiratham, Parvathi to Shiva \" Mullabana re, Mama vallabha Chollukayyo\""
+ },
+ {
+  "name": "SARANGAM",
+  "slug": "sarangam",
+  "arohana": "Sa Ri Ga Ma Pa Dha Ni Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ri Ga Ma Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Mechakalyani",
+  "rasa": "Veera Rasa",
+  "examples": "1. Duryodhana Vadham, Bhima to Duryodhana \" Kim Bho Suyodhana Sakhe\" 2. Duryodhana Vadham, Bhima calling to battle \" Kheda kaurava Keeda, Porinay Vaada\""
+ },
+ {
+  "name": "SAURASHTRAM",
+  "slug": "saurashtram",
+  "arohana": "Sa Ri Ga Ma Pa Dha Ni Sa",
+  "avarohana": "Sa Ni Dhaa Pa Ma Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Surya kantha",
+  "rasa": "Advises, Requests",
+  "examples": "1. Nalacharotham 1, Narada to Nala \" Bhushitha Ripu Nikara\" 2. Bali Vijayam, Narada to Ravana \" Deva Raja mahaprabho\""
+ },
+ {
+  "name": "SAVERI",
+  "slug": "saveri",
+  "arohana": "Sa Ri Ma Pa Dha Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Mayamalavagaula",
+  "rasa": "All",
+  "examples": "1. Nalacharotham 1, Nala to Swan \" Arika Hamsame, Aruthu Paridevitham\" 2. Santhanagopalam, Krishna to Arjuna \" Sriman Sakhe Vijaya, Dheeman Sakala Guna\""
+ },
+ {
+  "name": "SHAHANA",
+  "slug": "shahana",
+  "arohana": "Sa Ri Ga Ma Pa Ma Dhaa Ni Sa",
+  "avarohana": "Sa Nee Dha Pa Ma Gaa Ri Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Harikamboj",
+  "rasa": "Happiness",
+  "examples": "1. Nalacharitham 1, Damayanthi to thozhi \"Poka Poonkavilinnu\" 2. Nalacharitham 1, Damayanthi to Swan \"hantha Hamsame Chintha Enthuthe\""
+ },
+ {
+  "name": "SHANKARABHARANAM",
+  "slug": "shankarabharanam",
+  "arohana": "Sa Ri Ga Pa Dha Sa",
+  "avarohana": "Sa NI Dha Pa Ma Ga Ri Sa",
+  "other_names": "Dheera Shankarabharanam",
+  "janya_of": "Dheera Shankarabharanam",
+  "rasa": "Happiness, Love",
+  "examples": "1. Kalyana Saugandhikam, Bhima to Panchali \" Panchala Raja Thanaye\" 2. Nalacharitham 1, Swan to Nala \"Preethi Poondaraulukaye\" 3. Kirmira Vadham, Yudhishtira to Krishna \" Pundarika nayana Jayajaya\""
+ },
+ {
+  "name": "SRIRAGAM",
+  "slug": "sriragam",
+  "arohana": "Sa Ri Ma Pa Ni Sa",
+  "avarohana": "Sa Ni Pa Dha Ni Pa Ma Ri Ga Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Gharaharapriya",
+  "rasa": "Bhakthi or Prayer",
+  "examples": "Kuchela Vrittam, Kuchela to Krishna \"Ajitha Hare Jaya Madhava, Vishno, Ajamukha Devanatha\""
+ },
+ {
+  "name": "SURUTTI",
+  "slug": "surutti",
+  "arohana": "Sa Ri Ma Pa Ni Sa",
+  "avarohana": "Sa Ni Dha Pa Ma Ga Pa Ma Ri Sa",
+  "other_names": "Nil",
+  "janya_of": "Harikamboji",
+  "rasa": "General",
+  "examples": "1. Kirmira Vadham, Sahadevan to Simhika\" Rakshasi, Nillu Nilledi\" 2. Kuchela Vrittam, Kuchela to Krishan \" Pushkala Vilochana, Thval Kripa Karanena\""
+ },
+ {
+  "name": "THODI",
+  "slug": "thodi",
+  "arohana": "-",
+  "avarohana": "-",
+  "other_names": "Nil",
+  "janya_of": "Some see it as janya of HANUMATHODI",
+  "rasa": "Mainly Shringra - Vipralambha_Abhilashi, Sambhoga, Vipralambha_Pravasi",
+  "examples": "1. Nala to Hamsa \" Priyamanasa nee Poyvarenam Priyayodente Varthakal Cholvan\" 2. Nala to Damayanthi \" Kuvalaya Vlochane, Bale, Bhaimi\" 3. Nala to himself \"Vijane Batha Mahathi, Vipine Nee UnarnInduvadane Veenenthu Cheyvoo, Kadane\""
+ },
+ {
+  "name": "USHANI",
+  "slug": "ushani",
+  "arohana": "Sa Ri Gaa Ma Pa Ni Dha Ni Sa",
+  "avarohana": "Sa Ni Dha Pa Maa Ga Ri Sa",
+  "other_names": "Hussaini",
+  "janya_of": "Gharaharapriya",
+  "rasa": "Love",
+  "examples": "1. Uttara Swayamvaram, Kummi by ladies \"Veera Virata Kumara Vibho\" 2. Rukmangada Charitham, Heaven ladies \"Chitramaho Chitram, Devimare\" 3. Keechaka vadham, Sudeshna to Sairandhri 'maninimar mauli Mane\"ajaya\""
+ },
+ {
+  "name": "VEKADA",
+  "slug": "vekada",
+  "arohana": "Sa Ga Ri Ga Ma Pa Dha Ni Dha Pa Sa",
+  "avarohana": "Sa Ni Dha Pa Maa Ga Ri Sa",
+  "other_names": "Begada",
+  "janya_of": "Dheera Shankarabharanam",
+  "rasa": "Problematic Situations",
+  "examples": "1. Keechaka Vadham, Panchali to keechaka \" Sadaram Ni Chonnoru Mozhi Ithu\" 2, Nalacharitham 1, Nala to himself \"Nirjana mennathe yullu\""
+ },
+ {
+  "name": "VRINDAVANA SARANGAM",
+  "slug": "vrindavana-sarangam",
+  "arohana": "Sa Ri Ma Pa Ni Sa",
+  "avarohana": "Sa Ni Pa Ma Ri Ga Sa",
+  "other_names": "Nil",
+  "janya_of": "Sriragam",
+  "rasa": "Happiness, Bhakthi",
+  "examples": "1. Uttaraswayamvaram, Kripa to Karna \" Karna, partha sadrishanariha\" 2. Ambarisha charitham, 'kalaka, kalaka, kalushitha Hridi Bhupa\""
+ }
+]

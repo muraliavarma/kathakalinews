@@ -1,0 +1,31 @@
+---
+import Site from '../layouts/Site.astro';
+import videos from '../data/videos.json';
+---
+
+<Site active="videos" title="Videos">
+  <section class="hero"><div class="wrap">
+    <p class="kicker">Thodayam</p>
+    <h1>Videos</h1>
+    <p class="lead">The original site's <em>Thodayam</em> clips — the ritual invocation that opens a Kathakali performance. The dead Flash embeds have been restored as modern YouTube embeds.</p>
+  </div></section>
+
+  <div class="wrap" style="padding-top:1.4rem;">
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.4rem;">
+      {videos.map((v) => (
+        <div>
+          <h3>{v.title}</h3>
+          <div class="embed">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${v.youtube_id}`}
+              title={v.title}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="muted center" style="font-size:.82rem; margin-top:1.6rem;">Embeds may rot if the source uploads are removed from YouTube.</p>
+  </div>
+</Site>

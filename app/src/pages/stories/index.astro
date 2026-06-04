@@ -1,0 +1,50 @@
+---
+import Site from '../../layouts/Site.astro';
+import { stories } from '../../lib/data';
+
+const epics = Array.from(new Set(stories.map((s) => s.epic).filter(Boolean))).sort();
+---
+
+<Site active="stories" title="Story library">
+  <section class="hero"><div class="wrap">
+    <p class="kicker">Attakatha · {stories.length} plays</p>
+    <h1>Story library</h1>
+    <p class="lead">Synopses of the classical Kathakali plays — their composers, source epics, and the vesham (make-up types) of their characters.</p>
+  </div></section>
+
+  <div class="wrap" style="padding-top:1.4rem;">
+    <div class="tag-row" id="epicfilter" style="margin-bottom:1.2rem;">
+      <button class="badge epic" data-epic="">All ({stories.length})</button>
+      {epics.map((e) => (
+        <button class="badge" data-epic={e}>{e} ({stories.filter((s) => s.epic === e).length})</button>
+      ))}
+    </div>
+
+    <div class="grid cards" id="storygrid">
+      {stories.map((s) => (
+        <a class="card" href={`/stories/${s.slug}`} data-epic={s.epic}>
+          <div class="tag-row">
+            <span class="badge">{String(s.num).padStart(2, '0')}</span>
+            {s.epic && <span class="badge epic">{s.epic}</span>}
+          </div>
+          <h3>{s.title}</h3>
+          <span class="meta">{s.author || 'Unknown author'}{s.life_dates ? ` · ${s.life_dates}` : ''}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Site>
+
+<script>
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('#epicfilter [data-epic]'));
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('#storygrid [data-epic]'));
+  function apply(epic: string) {
+    cards.forEach((c) => { c.style.display = !epic || c.getAttribute('data-epic') === epic ? '' : 'none'; });
+    buttons.forEach((b) => b.classList.toggle('epic', (b.getAttribute('data-epic') || '') === epic));
+    const u = new URL(location.href);
+    if (epic) u.searchParams.set('epic', epic); else u.searchParams.delete('epic');
+    history.replaceState({}, '', u.pathname + (u.search || ''));
+  }
+  buttons.forEach((b) => b.addEventListener('click', () => apply(b.getAttribute('data-epic') || '')));
+  apply(new URLSearchParams(location.search).get('epic') || '');
+</script>

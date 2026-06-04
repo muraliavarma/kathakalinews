@@ -1,0 +1,51 @@
+---
+import Site from '../layouts/Site.astro';
+import { stats } from '../lib/data';
+const c = stats();
+const files = [
+  { href: '/data/performances.csv', name: 'performances.csv', desc: `${c.performances.toLocaleString()} performance records (2007–2011) — date, play, venue, district, artists, organiser, and the source quarter each row came from.` },
+  { href: '/data/performances.json', name: 'performances.json', desc: 'The same performance records as JSON (compact keys, used by the in-browser explorer).' },
+  { href: '/data/stories.json', name: 'stories.json', desc: `${c.stories} attakatha synopses with composer, life-dates, source epic and vesham notes.` },
+  { href: '/data/ragas.json', name: 'ragas.json', desc: `${c.ragas} ragas with arohana / avarohana, janya, rasa and padam examples.` },
+];
+---
+<Site active="data" title="Open data">
+  <section class="hero"><div class="wrap">
+    <p class="kicker">Sourced &amp; reusable</p>
+    <h1>Open data</h1>
+    <p class="lead">Everything on this site is generated from a handful of flat files kept in version control. They're published here so the archive is machine-readable, citable, and free to reuse.</p>
+  </div></section>
+
+  <div class="wrap" style="padding-top:1.4rem; max-width:820px;">
+    <div class="grid cards" style="grid-template-columns:1fr;">
+      {files.map((f) => (
+        <a class="card" href={f.href} download>
+          <h3>⬇️ {f.name}</h3>
+          <p>{f.desc}</p>
+        </a>
+      ))}
+    </div>
+
+    <section class="section">
+      <h2>Provenance</h2>
+      <div class="prose">
+        <p>The data was reconstructed from the <strong>Internet Archive (Wayback Machine)</strong>, using the latest
+        genuine kathakalinews.com snapshots (c. 2008–2014) and deliberately ignoring the later domain-parking and
+        spam captures.</p>
+        <ul>
+          <li><strong>Performances</strong> were parsed from the 17 quarterly “archive” pages. Each row keeps its
+          <code>source_file</code> (the quarter it came from), and values are preserved as originally submitted —
+          free-text and lightly cleaned, not yet canonicalised.</li>
+          <li><strong>Story synopses</strong> come from the 37 individual play pages; <strong>ragas</strong> from the
+          ragam-profiles page; the epic and attam summaries are preserved verbatim.</li>
+        </ul>
+        <p class="note">Honest caveat: play and district names contain spelling variants
+        (e.g. <em>Santhana Gopalam</em> / <em>Santhanagopalam</em>, <em>Trichur</em> / <em>Thrissur</em>), so the raw
+        “distinct” counts are inflated. Canonicalising these is a planned next step; the raw values are kept so nothing
+        is lost or silently “corrected”.</p>
+        <p class="muted">Reference content indebted to K.P.S. Menon, the Kerala Sahitya Academy, and
+        Prof. Aimanam Krishna Kaimal's <em>Kathakali Vijnana Kosham</em>.</p>
+      </div>
+    </section>
+  </div>
+</Site>

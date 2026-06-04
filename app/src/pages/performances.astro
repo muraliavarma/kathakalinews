@@ -1,0 +1,228 @@
+---
+import Site from '../layouts/Site.astro';
+import { performances } from '../lib/data';
+
+// Pre-render filter option lists at build time so they're present before JS runs.
+function countBy(key: (p: (typeof performances)[number]) => string) {
+  const m = new Map<string, number>();
+  for (const p of performances) {
+    const k = key(p);
+    if (k && k.length > 1) m.set(k, (m.get(k) ?? 0) + 1);
+  }
+  return [...m.entries()].sort((a, b) => b[1] - a[1]);
+}
+const districts = countBy((p) => p.district).slice(0, 45);
+const countries = countBy((p) => p.country).slice(0, 25);
+const years = [...new Set(performances.map((p) => p.year).filter((y): y is number => !!y && y > 2000))].sort();
+const total = performances.length;
+---
+
+<Site active="performances" title="Performance archive">
+  <section class="hero"><div class="wrap">
+    <p class="kicker">Crowdsourced 2007–2011</p>
+    <h1>Performance archive</h1>
+    <p class="lead">Every Kathakali performance submitted to kathakalinews.com — <span id="lead-count">{total.toLocaleString()}</span> records, searched instantly in your browser.</p>
+  </div></section>
+
+  <div class="wrap" style="padding-top:1.4rem;">
+    <form class="filters" id="filters" onsubmit="return false;">
+      <div style="grid-column: 1 / -1;">
+        <label for="q">Search play, venue, artist, organiser…</label>
+        <input type="search" id="q" name="q" placeholder="e.g. Kalamandalam Gopi, Nalacharitham, Guruvayur" autocomplete="off" />
+      </div>
+      <div>
+        <label for="district">District</label>
+        <select id="district" name="district">
+          <option value="">All districts</option>
+          {districts.map(([d, n]) => (<option value={d}>{d} ({n})</option>))}
+        </select>
+      </div>
+      <div>
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option value="">All countries</option>
+          {countries.map(([c, n]) => (<option value={c}>{c} ({n})</option>))}
+        </select>
+      </div>
+      <div>
+        <label for="year">Year</label>
+        <select id="year" name="year">
+          <option value="">All years</option>
+          {years.map((y) => (<option value={y}>{y}</option>))}
+        </select>
+      </div>
+      <div><button class="btn" type="button" id="reset">Reset</button></div>
+    </form>
+
+    <div class="tag-row" id="chips" style="margin-bottom:1rem;"></div>
+
+    <div class="table-wrap">
+      <table class="data">
+        <thead>
+          <tr><th class="nowrap">Date</th><th>Play</th><th>Venue</th><th>District</th><th>Artists</th><th>Organiser</th></tr>
+        </thead>
+        <tbody id="rows">
+          <tr><td colspan="6" class="center muted" style="padding:2rem;">Loading the archive…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pager" id="pager"></div>
+    <p class="center muted" style="font-size:.85rem;" id="summary"></p>
+    <noscript><p class="note">This archive explorer needs JavaScript to search. The full dataset is also available on the <a href="/data">Open data</a> page as JSON and CSV.</p></noscript>
+  </div>
+</Site>
+
+<script>
+  type Row = { d: string; iso: string; y: number; p: string; pk: string; v: string; di: string; c: string; a: string; o: string; src: string };
+  const PER_PAGE = 50;
+  let data: Row[] = [];
+
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const q = $('q') as HTMLInputElement;
+  const district = $('district') as HTMLSelectElement;
+  const country = $('country') as HTMLSelectElement;
+  const year = $('year') as HTMLSelectElement;
+  const rows = $('rows');
+  const pager = $('pager');
+  const chips = $('chips');
+  const summary = $('summary');
+  const leadCount = $('lead-count');
+
+  const esc = (s: string) =>
+    (s || '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c] as string);
+
+  function readParams() {
+    const p = new URLSearchParams(location.search);
+    q.value = p.get('q') || '';
+    district.value = p.get('district') || '';
+    country.value = p.get('country') || '';
+    year.value = p.get('year') || '';
+    return { play: p.get('play') || '', page: Math.max(1, parseInt(p.get('page') || '1') || 1) };
+  }
+
+  let state = { play: '', page: 1 };
+
+  function syncUrl(replace = false) {
+    const p = new URLSearchParams();
+    if (q.value.trim()) p.set('q', q.value.trim());
+    if (state.play) p.set('play', state.play);
+    if (district.value) p.set('district', district.value);
+    if (country.value) p.set('country', country.value);
+    if (year.value) p.set('year', year.value);
+    if (state.page > 1) p.set('page', String(state.page));
+    const url = location.pathname + (p.toString() ? '?' + p.toString() : '');
+    history[replace ? 'replaceState' : 'pushState']({}, '', url);
+  }
+
+  function filtered(): Row[] {
+    const term = q.value.trim().toLowerCase();
+    const di = district.value, co = country.value, yr = year.value ? parseInt(year.value) : 0;
+    return data.filter((r) => {
+      if (state.play && r.pk !== state.play) return false;
+      if (di && r.di !== di) return false;
+      if (co && r.c !== co) return false;
+      if (yr && r.y !== yr) return false;
+      if (term) {
+        const hay = (r.p + ' ' + r.v + ' ' + r.a + ' ' + r.o + ' ' + r.di).toLowerCase();
+        if (!hay.includes(term)) return false;
+      }
+      return true;
+    });
+  }
+
+  function playLabel(pk: string): string {
+    let best = pk;
+    for (const r of data) if (r.pk === pk && r.p && (best === pk || r.p.length < best.length)) best = r.p;
+    return best;
+  }
+
+  function render() {
+    const res = filtered();
+    res.sort((a, b) => (b.iso || '').localeCompare(a.iso || ''));
+    const pages = Math.max(1, Math.ceil(res.length / PER_PAGE));
+    if (state.page > pages) state.page = pages;
+    const start = (state.page - 1) * PER_PAGE;
+    const slice = res.slice(start, start + PER_PAGE);
+
+    rows.innerHTML =
+      slice.length === 0
+        ? '<tr><td colspan="6" class="center muted" style="padding:2rem;">No performances match these filters.</td></tr>'
+        : slice
+            .map(
+              (r) => `<tr>
+        <td class="nowrap">${esc(r.d)}</td>
+        <td><a href="/performances?play=${encodeURIComponent(r.pk)}" data-play="${esc(r.pk)}">${esc(r.p) || '—'}</a></td>
+        <td>${esc(r.v) || '—'}</td>
+        <td class="nowrap">${r.di ? `<a href="/performances?district=${encodeURIComponent(r.di)}" data-district="${esc(r.di)}">${esc(r.di)}</a>` : '—'}${r.c && r.c !== 'India' ? ' · ' + esc(r.c) : ''}</td>
+        <td style="min-width:220px;">${esc(r.a) || '—'}</td>
+        <td>${esc(r.o) || '—'}</td></tr>`,
+            )
+            .join('');
+
+    // chips
+    const cs: string[] = [];
+    if (state.play) cs.push(`<button class="badge" data-clear="play">Play: ${esc(playLabel(state.play))} ✕</button>`);
+    if (district.value) cs.push(`<button class="badge" data-clear="district">District: ${esc(district.value)} ✕</button>`);
+    if (country.value) cs.push(`<button class="badge" data-clear="country">Country: ${esc(country.value)} ✕</button>`);
+    if (year.value) cs.push(`<button class="badge" data-clear="year">Year: ${esc(year.value)} ✕</button>`);
+    if (q.value.trim()) cs.push(`<button class="badge" data-clear="q">“${esc(q.value.trim())}” ✕</button>`);
+    chips.innerHTML = cs.join('');
+
+    // pager
+    pager.innerHTML =
+      pages > 1
+        ? `<button class="${state.page <= 1 ? 'disabled' : ''}" data-page="${state.page - 1}">← Prev</button>
+           <span class="cur">Page ${state.page} of ${pages}</span>
+           <button class="${state.page >= pages ? 'disabled' : ''}" data-page="${state.page + 1}">Next →</button>`
+        : '';
+    summary.textContent = `Showing ${slice.length} of ${res.length.toLocaleString()} matching records · ${data.length.toLocaleString()} total.`;
+    leadCount.textContent = res.length.toLocaleString();
+  }
+
+  function update(resetPage = true) {
+    if (resetPage) state.page = 1;
+    syncUrl();
+    render();
+  }
+
+  let t: number;
+  q.addEventListener('input', () => { clearTimeout(t); t = window.setTimeout(() => update(), 180); });
+  [district, country, year].forEach((el) => el.addEventListener('change', () => update()));
+  $('reset').addEventListener('click', () => {
+    q.value = ''; district.value = ''; country.value = ''; year.value = ''; state.play = '';
+    update();
+  });
+
+  document.addEventListener('click', (e) => {
+    const el = (e.target as HTMLElement).closest('[data-page],[data-play],[data-district],[data-clear]') as HTMLElement | null;
+    if (!el) return;
+    if (el.hasAttribute('data-page')) {
+      e.preventDefault();
+      const pg = parseInt(el.getAttribute('data-page')!);
+      if (!el.classList.contains('disabled')) { state.page = pg; syncUrl(); render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    } else if (el.hasAttribute('data-play')) {
+      e.preventDefault(); state.play = el.getAttribute('data-play')!; q.value = ''; district.value = ''; country.value = ''; year.value = ''; update();
+    } else if (el.hasAttribute('data-district')) {
+      e.preventDefault(); district.value = el.getAttribute('data-district')!; update();
+    } else if (el.hasAttribute('data-clear')) {
+      const f = el.getAttribute('data-clear')!;
+      if (f === 'play') state.play = '';
+      else if (f === 'q') q.value = '';
+      else (document.getElementById(f) as HTMLSelectElement).value = '';
+      update();
+    }
+  });
+
+  window.addEventListener('popstate', () => { const s = readParams(); state.play = s.play; state.page = s.page; render(); });
+
+  fetch('/data/performances.json')
+    .then((r) => r.json())
+    .then((d: Row[]) => {
+      data = d;
+      const s = readParams();
+      state.play = s.play; state.page = s.page;
+      render();
+    })
+    .catch(() => { rows.innerHTML = '<tr><td colspan="6" class="center muted" style="padding:2rem;">Could not load the dataset.</td></tr>'; });
+</script>

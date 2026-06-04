@@ -1,0 +1,74 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  active?: string;
+}
+const {
+  title = 'Kathakali News',
+  description = 'A digital awakening in Kathakali — synopses of attakatha plays, the raga catalogue, and a crowdsourced archive of 2,846 performances (2007–2011).',
+  active = '',
+} = Astro.props;
+
+const nav = [
+  { href: '/', label: 'Home', key: 'home' },
+  { href: '/performances', label: 'Performances', key: 'performances' },
+  { href: '/stories', label: 'Stories', key: 'stories' },
+  { href: '/ragas', label: 'Ragas', key: 'ragas' },
+  { href: '/reference', label: 'Reference', key: 'reference' },
+  { href: '/videos', label: 'Videos', key: 'videos' },
+  { href: '/data', label: 'Data', key: 'data' },
+  { href: '/about', label: 'About', key: 'about' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title === 'Kathakali News' ? title : `${title} · Kathakali News`}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <span class="dot" aria-hidden="true"></span>
+          <span>
+            <b>KATHAKALINEWS</b><br />
+            <span class="tag">A digital awakening in Kathakali</span>
+          </span>
+        </a>
+        <nav class="main" aria-label="Primary">
+          {nav.map((n) => (
+            <a href={n.href} aria-current={active === n.key ? 'page' : undefined}>{n.label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <div>
+          <strong>kathakalinews.com</strong> — reconstructed from the Internet Archive (2008–2014 era)
+          and rebuilt on Cloudflare&nbsp;Workers + D1.<br />
+          <span class="muted">Reference indebted to K.P.S. Menon, the Kerala Sahitya Academy, and
+          Prof. Aimanam Krishna Kaimal's <em>Kathakali Vijnana Kosham</em>.</span>
+        </div>
+        <div>
+          <a href="/about">About &amp; provenance</a><br />
+          <a href="/performances">Performance archive</a><br />
+          <a href="/data">Open data</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

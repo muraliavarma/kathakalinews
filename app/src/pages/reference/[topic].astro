@@ -1,0 +1,30 @@
+---
+import Site from '../../layouts/Site.astro';
+import reference from '../../data/reference.json';
+
+type Entry = { title: string; html: string };
+const ref = reference as Record<string, Entry>;
+
+export function getStaticPaths() {
+  return Object.keys(reference as Record<string, Entry>).map((topic) => ({ params: { topic } }));
+}
+
+const { topic } = Astro.params;
+const entry = ref[topic ?? ''];
+
+// light sanitise: drop HTML comments and stray carriage returns left from the
+// 2000s-era source, keep the preserved markup.
+const clean = (entry?.html ?? '')
+  .replace(/<!--[\s\S]*?-->/g, '')
+  .replace(/\r/g, '')
+  .replace(/\n{2,}/g, '\n');
+---
+
+<Site active="reference" title={entry?.title ?? 'Reference'}>
+  <div class="wrap">
+    <p class="crumbs"><a href="/reference">← Reference library</a></p>
+    <h1>{entry?.title}</h1>
+    <div class="prose faithful" set:html={clean} />
+    <p class="muted center" style="font-size:.82rem; margin-top:1.4rem;">Preserved verbatim from the original kathakalinews.com.</p>
+  </div>
+</Site>

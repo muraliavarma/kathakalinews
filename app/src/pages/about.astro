@@ -1,0 +1,33 @@
+---
+import Site from '../layouts/Site.astro';
+import { stats } from '../lib/data';
+const c = stats();
+---
+<Site active="about" title="About & provenance">
+  <div class="wrap" style="padding-top:1.4rem; max-width:760px;">
+    <h1>About this reconstruction</h1>
+    <div class="prose">
+      <p><strong>kathakalinews.com</strong> — “A digital awakening in Kathakali” — was a hand-built community
+      site that ran from roughly <strong>2008 to early 2014</strong>. It did two things: it hosted a reference
+      library of Kathakali plays, ragas and the epics, and it ran a crowdsourced calendar where rasikas logged
+      upcoming performances, archived quarterly.</p>
+      <p>After it went dormant the domain was parked and later overrun by spam. This site is a faithful
+      reconstruction built from the <strong>latest genuine snapshots in the Internet Archive</strong> (ignoring
+      the later parking/spam captures).</p>
+      <h3>What was recovered</h3>
+      <ul>
+        <li><strong>{c.performances.toLocaleString()}</strong> performance records (2007–2011), parsed from 17 quarterly archive pages</li>
+        <li><strong>{c.stories}</strong> attakatha (play) synopses with composers and vesham notes</li>
+        <li><strong>{c.ragas}</strong> ragas with arohana / avarohana, janya and padam examples</li>
+        <li>Ramayana / Mahabharata / Bhagavata summaries, the attams, and the Thodayam videos</li>
+      </ul>
+      <h3>How it's built</h3>
+      <p>A fully <strong>static</strong> site generated with Astro. There is no database and no server: the source
+      of truth is plain JSON in the repository, every page is rendered to flat HTML at build time, and the
+      performance archive is searched entirely in your browser. The whole thing is a flat file set that can be
+      hosted anywhere — or read offline from a folder. Everything is also published as <a href="/data">open data</a>.</p>
+      <p class="muted">Reference content is indebted to K.P.S. Menon, the Kerala Sahitya Academy, and
+      Prof. Aimanam Krishna Kaimal's <em>Kathakali Vijnana Kosham</em>. Original site by K. Srikumar / Shyam Srikumar.</p>
+    </div>
+  </div>
+</Site>

@@ -1,0 +1,22 @@
+# dependencies
+node_modules/
+**/node_modules/
+
+# build output
+app/dist/
+dist/
+.astro/
+**/.astro/
+
+# cloudflare / wrangler local state (not used, but just in case)
+.wrangler/
+
+# superseded intermediate browsable mirror (replaced by app/); raw provenance lives in archive/
+site/
+
+# logs & os
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
